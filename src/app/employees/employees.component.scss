@@ -1,0 +1,33 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+input {
+  width: 20%;
+    margin: auto;
+      display: inline-block;
+}
+
+label{
+  margin-right: 20px;
+}
+
+.ng-invalid{
+  border: 0.2px solid red;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}

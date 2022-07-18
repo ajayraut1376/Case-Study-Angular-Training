@@ -1,0 +1,122 @@
+<h2 style="align-content: center">Employee Management</h2>
+
+<div class="container" style="padding: 10px; margin: 10px">
+  <form [formGroup]="userForm">
+    <div class="form-group">
+      <label>Enter Id</label>
+      <input
+        type="text"
+        #id
+        class="form-control"
+        id="id"
+        aria-describedby="emailHelp"
+        placeholder="Enter Id"
+        formControlName="id"
+      />
+    </div>
+    <div class="form-group">
+      <label for="name">Enter Name</label>
+      <input
+        type="text"
+        #name
+        class="form-control"
+        id="name"
+        placeholder="Enter Name"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="username">Enter UserName</label>
+      <input
+        type="text"
+        #username
+        class="form-control"
+        id="username"
+        placeholder="Enter UserName"
+        formControlName="username"
+        name="username"
+      />
+      <!-- <div *ngIf="!username.valid && username.touched">
+        This field is required
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label for="email">Enter Email</label>
+      <input
+        type="email"
+        #email
+        class="form-control"
+        id="email"
+        placeholder="Enter Email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="website">Enter website</label>
+      <input
+        type="text"
+        #website
+        class="form-control"
+        id="website"
+        placeholder="Enter website"
+        formControlName="website"
+      />
+    </div>
+    <div class="form-group">
+      <label for="phone">Enter Phone Number</label>
+      <input
+        type="text"
+        ngModel
+        #phone
+        class="form-control"
+        id="phone"
+        placeholder="Enter phone Number"
+        formControlName="phone"
+      />
+    </div>
+
+    <button
+      (click)="createPost(id, name, username, email, website, phone)"
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="userForm.invalid"
+    >
+      Add Employee Record
+    </button>
+  </form>
+</div>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>UserName</th>
+    <th>email</th>
+    <th>website</th>
+    <th>phone</th>
+  </tr>
+  <tr *ngFor="let user of Emp; let i = index">
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.username }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.website }}</td>
+    <td>{{ user.phone }}</td>
+    <td>
+      <button
+        (click)="updatePost(user)"
+        class="btn btn-danger btn-sm pull-right"
+      >
+        Update
+      </button>
+    </td>
+    <td>
+      <button
+        (click)="deletePost(user)"
+        class="btn btn-danger btn-sm pull-right"
+      >
+        Delete
+      </button>
+    </td>
+  </tr>
+</table>
